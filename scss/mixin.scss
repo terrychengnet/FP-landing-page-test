@@ -1,0 +1,13 @@
+@mixin background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin transition($time, $action){
+  -webkit-transition: all $time $action;
+  -moz-transition: all $time $action;
+  -ms-transition: all $time $action;
+  -o-transition: all $time $action;
+  transition: all $time $action;
+}

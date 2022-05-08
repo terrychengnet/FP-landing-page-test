@@ -1,0 +1,414 @@
+@import "custom_variables";
+@import "./bootstrap/mixins/_breakpoints";
+@import "mixin";
+
+// Global
+html {
+	font-size: 62.5%; 
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 5rem;
+	line-height: 1.3;
+}
+
+h2 {
+	font-size: 2.1rem;
+	line-height: 1.2;
+
+	@include media-breakpoint-up(md) {
+		font-size: 4.5rem;
+	}
+}
+
+h3 {
+	font-size: 4rem;
+	line-height: 1.2;
+}
+
+h4 {
+	font-size: 3.5rem;
+	line-height: 1.2;
+}
+
+p {
+	font-size: 1.3rem;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+
+	@include media-breakpoint-up(md) {
+		font-size: 3.6rem;
+		margin-bottom: 5rem;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+body {
+	background-color: $white;
+	font-family: $proxima;
+	font-weight: bold;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	z-index: 99999;
+	transform: translateY(0);
+	@include transition(0.5s, ease-in-out);
+
+	&.hidden {
+		transform: translateY(-100%);
+	}
+
+	a {
+		width: 100%;
+		max-width: 190px;
+		padding-top: 30px;
+
+		@include media-breakpoint-up(md) {
+			max-width: 320px;
+		}
+
+		.header-logo {
+			width: 100%;
+		}
+	}
+}
+
+footer {
+	background-color: $navy;
+	padding: 80px 40px;
+
+	.form-intro {
+		color: $white;
+		font-size: 1.8rem;
+		line-height: 1.2;
+
+		@include media-breakpoint-up(md) {
+			font-size: 3.6rem;
+		}
+	}
+}
+
+section {
+	position: relative;
+	padding: 30px 40px;
+
+	@include media-breakpoint-up(md) {
+		padding: 80px 40px;		
+	}
+
+	&.blue-mask {
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(48,127,226,0.8);
+			z-index: 1;
+		}
+	}
+}
+
+.section-title {
+	position: relative;
+	color: $white;
+	margin-bottom: 5rem;
+	z-index: 99;
+}
+
+.animate,
+.animate-2 {
+	transform: translateY(20px);
+	opacity: 0;
+	@include transition(0.3s, ease-in-out);
+
+	&.fadeIn {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.hero {
+	display: block;
+	width: 100vw;
+	height: 392px;
+	overflow: hidden;
+	background-image: url('../img/hero-bg.jpg');
+	@include background;
+
+	@include media-breakpoint-up(sm) {
+		height: 500px;
+	}
+
+	@include media-breakpoint-up(md) {
+		height: calc(100vh + 100px);
+		min-height: 500px;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(226,234,242,0.6);
+		z-index: 10;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: -60px;
+		right: 0;
+		left: 0;
+		width: 100%;
+		height: 120px;
+		border-radius: 50%;
+		background: $blue;
+		z-index: 11;
+
+		@include media-breakpoint-up(md) {
+			bottom: -190px;
+			height: 380px;
+		}
+	}
+
+	.hero-container {
+		position: relative;
+		height: 100%;
+	}
+
+	.hero-scroll-downs {
+		position: absolute;
+		right: 0;
+	 	bottom: 24%;
+	  	left: 0;
+	  	width :34px;
+	  	height: 55px;
+	  	margin: auto;
+	  	transform: translateY(20px);
+	  	opacity: 0;
+	  	z-index: 999;
+
+	  	.mouse {
+		  	width: 4px;
+		  	height: 30px;
+		  	padding: 8px 8px;
+		  	border: 3px solid $blue;
+		  	border-radius: 25px;
+		  	opacity: 0.75;
+		  	box-sizing: content-box;
+		}
+
+		.scroller {
+		  	width: 4px;
+		  	height: 10px;
+		  	border-radius: 25%;
+		  	background-color: $blue;
+		  	animation-name: scroll;
+		  	animation-duration: 2.2s;
+		  	animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+		  	animation-iteration-count: infinite;
+		}
+
+		@keyframes scroll {
+		  	0% { opacity: 0; }
+		  	10% { transform: translateY(0); opacity: 1; }
+		  	100% { transform: translateY(28px); opacity: 0;}
+		}
+	}
+
+	.hero-slogan {
+		position: relative;
+		width: 100%;
+		max-width: 1265px;
+		padding: 0 8%;
+		margin-bottom: 0;
+		transform: translateY(-50px);
+		opacity: 0;
+		z-index: 99;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 12%;			
+		}
+	}
+}
+
+.section__intro {
+	background-color: $blue;
+	color: $white;
+	padding-bottom: 30px;
+
+	@include media-breakpoint-up(md) {
+		padding-bottom: 120px;		
+	}
+
+	.intro-title {
+		font-family: $bodoni;
+		font-style: italic;
+		font-size: 2.1rem;
+		line-height: 1.1;
+		margin-bottom: 2rem;
+
+		@include media-breakpoint-up(md) {
+			font-size: 9.6rem;
+			margin-bottom: 5rem;
+		}
+	}
+}
+
+.section__pledge {
+	background-image: url('../img/office.jpg');
+	@include background;
+
+	h1 {
+		position: relative;
+		font-size: 7.4vw;
+		line-height: 0.9;
+		color: $white;
+		text-transform: uppercase;
+		z-index: 99;
+		transform: translateX(-70px);
+		opacity: 0;
+
+		.txt-bodoni {
+			font-family: $bodoni;
+			font-style: italic;
+			font-weight: 400;
+			font-size: 6vw;
+		}
+
+		.txt-large {
+			font-size: 12vw;
+		}
+
+		span {
+			display: block;
+			position: relative;
+
+			&#p-txt-3 {
+				text-align: center;
+			}
+
+			&#p-txt-4 {
+				padding-left: 44%;
+			}
+
+			&#p-txt-5 {
+				padding-left: 42%;
+			}
+
+			&#p-txt-6,
+			&#p-txt-7,
+			&#p-txt-8,
+			&#p-txt-9 {
+				padding-left: 30%;
+			}
+		}
+	}
+}
+
+.section__experience {
+	background-color: $blue-dark;
+
+	.icon-wrap {
+		margin-bottom: 15px;
+		padding: 0 20px;
+
+		@include media-breakpoint-up(sm) {
+			padding: 0 40px;
+		}
+
+		@include media-breakpoint-up(md) {
+			padding: 0 20px;
+			margin-bottom: 0;
+		}
+	}
+
+	.exp-icon {
+		display: block;
+		width: 100%;
+		margin:0 auto;
+	}
+
+	.icon-title {
+		display: block;
+		font-size: 1.3rem;
+		color: $white;
+	}
+}
+
+.section__campaign {
+	background-image: url('../img/campaign.jpg');
+	@include background;
+
+	.campaign-figures {
+		position: relative;
+		z-index: 99;
+	}
+}
+
+.footer-form {
+	color: $white;
+	width: 100%;
+	max-width: 480px;
+
+	label {
+		display: block;
+		width: 100%;
+		font-size: 2rem;
+		margin-bottom: 12px;
+	}
+
+	input,
+	select {
+		display: block;
+		width: 100%;
+		border: 2px solid $white;
+		color: $white;
+		background-color: transparent;
+		padding: 2px 10px;
+		margin-top: 3px;
+		@include transition(0.3s, ease-in-out);
+
+		&:focus {
+			border-radius: 0;
+			outline: none !important;
+			color: $black;
+			background-color: $white;
+		}
+	}
+
+	input[type=submit] {
+		background-color: $flamingo;
+		text-transform: uppercase;
+		font-size: 2rem;
+		font-weight: bold;
+		border: none;
+		padding: 8px 0;
+		margin-top: 30px;
+		@include transition(0.3s, ease-in-out);
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:active {
+			opacity: 1;
+		}
+	}
+}

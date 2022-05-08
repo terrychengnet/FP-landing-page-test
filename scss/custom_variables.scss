@@ -1,0 +1,33 @@
+// Fonts
+$bodoni:      'Bodoni Moda', serif;
+$proxima:      'Proxima Nova', serif;
+
+// Colours
+$white:         #fff !default;
+$black:         #000 !default;
+$light-blue:    #e2eaf2 !default;
+$flamingo:      #ff6d6a !default;
+$grey:          #707070 !default;
+$blue:          #307fe2 !default;
+$blue-dark:     #235ba8 !default;
+$navy:          #1d4289 !default;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1440px
+) !default;
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1000px,
+  xxl:1140px
+) !default;
+
+// Spacer

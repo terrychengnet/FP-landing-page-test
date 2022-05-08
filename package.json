@@ -1,0 +1,23 @@
+{
+  "name": "landing-page-test",
+  "version": "1.0.0",
+  "description": "Demo purpose for First Page interview test",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrychengnet/FP-landing-page-test.git"
+  },
+  "author": "Terry Cheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terrychengnet/FP-landing-page-test/issues"
+  },
+  "homepage": "https://github.com/terrychengnet/FP-landing-page-test#readme",
+  "devDependencies": {
+    "sass": "^1.51.0"
+  }
+}
