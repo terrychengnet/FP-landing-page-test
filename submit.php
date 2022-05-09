@@ -1,8 +1,9 @@
-<?
+<div class="main" style="display:block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: #307fe2;">
+<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if (!isset($_POST['form-name']) || !isset($_POST['form-email'])) {
-        header('Location: http://localhost:8888/FP-landing-page-test');
+        header('Location: http://local.fp-landing.com/');
     }
 
 	$subscribed = false;
@@ -37,11 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   	}
 
 	if ($subscribed) {
-		echo 'You have been subscribed!';
+		echo '<span style="color: white; font-size: 20px; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">' . 'You have been subscribed!' . '</span>';
 	} else {
-		echo 'Something went wrong';
+		echo '<span style="color: white; font-size: 20px; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">' . 'Something went wrong' . '</span>';
 	}
 
 } else {
-    header('Location: http://localhost:8888/FP-landing-page-test');
+    header('Location: http://local.fp-landing.com/');
 }
+?>
+</div>
